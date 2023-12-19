@@ -17,8 +17,8 @@
     footer {color: black; font-weight: bold; background-color: #05701cdc; text-align: left; padding: 12px; display: flex; align-items: center; border-top: 2px solid #000000;}
     footer nav ul {display: flex; list-style: none; padding: 0; margin: 0;} /* ChatGPT */
     footer nav ul li {margin-right: 15px; } /* ChatGPT */
-    main {display: flex; background-color: #f1dcb5; min-height: 797px; }
-    .localLink {background-color: #e2b768; padding: 20px; width: 250px; border-right: 2px solid #000000;}
+    main {display: flex; background-color: #f1dcb5; height: auto; }
+    .localLink {background-color: #e2b768; padding: 10px; border-right: 2px solid #000000;}
     .localLink a {color: black; font-weight: bold; line-height: 2}
     .localLink a:hover {color: #646262; }
     h1 {color: black; font-size: larger; line-height: 2;text-align: left; margin-left: 12px ; }
@@ -32,16 +32,12 @@
     label[for="language"] {font-weight: bold; }
 
     @media (max-width: 767px) {
-        .searchbar { width: 100%; margin: 8px auto; }
-        .d-inline a { text-align: center; }
-        .navbar { min-width: 767px; overflow-x: auto; } 
+        .navbar { min-width: 767px;  } 
         footer {min-width: 767px;}
-        main {min-width: 767px;}
-    }
+        main {min-width: 767px;} }
 
     body.rtl { direction: rtl; text-align: right; }
     .navbar-nav {flex-direction: row-reverse; }
-    
 </style>
   
 </head>
