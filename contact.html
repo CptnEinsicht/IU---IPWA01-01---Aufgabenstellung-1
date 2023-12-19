@@ -6,57 +6,150 @@
   <title>CO² Footprint</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
   <style type="text/css">
     .nav-item .nav-link { color: black; font-weight: bold; }
-    footer {color: black; font-weight: bold; background-color: #05701cdc; text-align: center; padding: 10px; }
-    main {background-color: #f1dcb5; }
-    h1 {color: black; font-size: larger; line-height: 2; }
-    p {color: black; font-size: large; line-height: 1; }
-  </style>
+    .nav-item a:hover {color: #646262; }
+    .searchbar {width: 100%; font-size: 16px; padding: 12px; border: 1px solid #000000; margin-bottom: 8px; margin-top: 12px; }
+    .d-inline a {color: black; font-weight: bold; text-align: center; }
+    .d-inline a:hover {color: #646262; }
+    footer {color: black; font-weight: bold; background-color: #05701cdc; text-align: left; padding: 12px; display: flex; align-items: center; border-top: 2px solid #000000;}
+    footer nav ul {display: flex; list-style: none; padding: 0; margin: 0;} /* ChatGPT */
+    footer nav ul li {margin-right: 15px; } /* ChatGPT */
+    main {display: flex; background-color: #f1dcb5; min-height: 797px;}
+    .localLink {background-color: #e2b768; padding: 20px; width: 250px; border-right: 2px solid #000000;}
+    .localLink a {color: black; font-weight: bold; line-height: 2}
+    .localLink a:hover {color: #646262; }
+    h1 {color: black; font-size: larger; line-height: 2;text-align: left; margin-left: 12px ; }
+    p {color: black; font-size: large; line-height: 1;text-align: left; margin-left: 12px ; }
+    #myTable {border-collapse: collapse; width: 100%; border: 1px solid #ddd; font-size: 18px;}
+    #myTable th, #myTable td {Text-align: left; padding: 12px; }
+    #myTable tr {border-bottom: 1px solid #ddd; }
+    #myTable tr.header, #myTable tr:hover {background-color: #f1f1f1; }
+    .container-fluid-language {display: flex; align-items: right; }
+    .language-label {margin-right: 12px; }
+    label[for="language"] {font-weight: bold; }
+
+    @media (max-width: 767px) {
+        .searchbar { width: 100%; margin: 8px auto; }
+        .d-inline a { text-align: center; }
+        .navbar { min-width: 767px; overflow-x: auto; } 
+        footer {min-width: 767px;}
+        main {min-width: 767px; min-height: 1000px;}
+    }
+
+    body.rtl { direction: rtl; text-align: right; }
+    .navbar-nav {flex-direction: row-reverse; }
+    
+</style>
+  
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: #05701cdc;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="Testlogo.png" height="70" width="70" alt="Bild kann nicht geladen werden." align="center"> <!--von heise.de-->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <header>
+    <nav class="navbar navbar-expand" style="background-color: #05701cdc; border-bottom: 2px solid #000000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="Testlogo.png" height="70" width="70" alt="Bild kann nicht geladen werden." align="center"> <!--von heise.de-->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Startseite</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="contact.html">Kontakt</a>
+                        <a class="nav-link" href="contact.html">Kontakt</a>
                     </li>
                     <li class="nav-item">
-                     <a class="nav-link" href="about.html">Über Uns</a>
+                        <a class="nav-link" href="about.html">Über Uns</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-fluid-language">
+                <div class="language-label">
+                    <label for="language">Sprache:</label>
                 </div>
-              </div>
-            </nav>
-    </header>
-    
-    <main>
-        <h1 style="text-align: center;">CO² Ausstoß und Klimawandel</h1> 
-        <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit porro rem officia, officiis ex, qui nesciunt ullam, earum consectetur veritatis vero maxime dicta. Sapiente molestiae id odit hic est!</p>
-        <p style="text-align: center;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, quos adipisci? Quos deserunt facilis iure eos autem numquam possimus, <br>
-                                        quaerat incidunt neque obcaecati aliquid, impedit cum quisquam expedita. Incidunt, voluptatibus.</p>
-        <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio, dignissimos voluptatem labore suscipit consequatur? Blanditiis numquam nisi ullam quibusdam omnis, adipisci, sunt delectus recusandae iste earum sint, placeat officia.</p>
-    </main>
-    
-    <footer>
-      <nav>
-          <ul>
-           <li class="d-inline"><a href="privacy.html">Datenschutz</a></li>
-           <li class="d-inline"><a href="imprint.html">Impressum</a></li>
-          </ul>
-        </nav>
-       </footer>
-     </body>   
-    </html>
-    
+                <div class="language-dropdown">
+                    <select name="language" id="language" onchange="changeLanguage()">
+                        <option value="german">Deutsch</option>
+                        <option value="arabic">عربي</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+
+   <div class="mainContent">
+    <h1>Kontakt</h1> 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit porro rem officia, officiis ex, qui nesciunt ullam, earum consectetur veritatis vero maxime dicta. Sapiente molestiae id odit hic est!</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, quos adipisci? Quos deserunt facilis iure eos autem numquam possimus, <br>
+                                    quaerat incidunt neque obcaecati aliquid, impedit cum quisquam expedita. Incidunt, voluptatibus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio, dignissimos voluptatem labore suscipit consequatur? Blanditiis numquam nisi ullam quibusdam omnis, adipisci, sunt delectus recusandae iste earum sint, placeat officia.</p>
+  </div>
+</main>
+
+<footer>
+  <nav>
+      <ul>
+       <li class="d-inline"><a href="privacy.html">Datenschutz</a></li>
+       <li class="d-inline"><a href="imprint.html">Impressum</a></li>
+      </ul>
+    </nav>
+   </footer>
+
+   <script>
+    function changeLanguage() {
+      var languageSelect = document.getElementById("language");
+      var selectedLanguage = languageSelect.options[languageSelect.selectedIndex].value;
+
+        // Änderungen basierend auf der ausgewählten Sprache
+       var localLink = document.querySelector(".localLink");
+        if (selectedLanguage === "arabic") {
+          localLink.style.borderRight = "none";
+          localLink.style.borderLeft = "2px solid #000000";
+        } else {
+          localLink.style.borderRight = "2px solid #000000";
+          localLink.style.borderLeft = "none";
+        }
+
+      if (selectedLanguage === "arabic") {
+        // Wenn "Arabic" ausgewählt ist, füge die Klasse "rtl" zum Body hinzu
+        document.body.classList.add("rtl");
+      } else {
+        // Andernfalls entferne die Klasse "rtl" vom Body
+        document.body.classList.remove("rtl");
+      }
+    }
+  </script>
+
+  <script> // https://www.w3schools.com/howto/howto_js_filter_table.asp //
+    function sortAndFilter() {
+      var input, filter, table, tr, td1, td2, i, txtValue1, txtValue2;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[0];
+        td2 = tr[i].getElementsByTagName("td")[1];
+        if (td1 && td2) {
+          txtValue1 = td1.innerText;
+          txtValue2 = td2.innerText;
+          if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = ""; }
+            else {
+            tr[i].style.display = "none"; }
+        }       
+      }
+    }
+  </script>
+ </body>   
+</html>
