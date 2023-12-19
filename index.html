@@ -10,14 +10,29 @@
 
   <style type="text/css">
     .nav-item .nav-link { color: black; font-weight: bold; }
-    footer {color: black; font-weight: bold; background-color: #05701cdc; text-align: center; padding: 10px; }
+    .searchbar {width: 100%; font-size: 16px; padding: 12px; border: 1px solid #000000; margin-bottom: 8px; }
+    .d-inline a {color: black; font-weight: bold; text-align: center; }
+    footer {color: black; font-weight: bold; background-color: #05701cdc; text-align: left; padding: 12px; display: flex; align-items: center; }
+    footer nav ul {display: flex; list-style: none; padding: 0; margin: 0;}
+    footer nav ul li {margin-right: 15px; }
     main {background-color: #f1dcb5; }
-    p {color: black; font-size: large; line-height: 1;  }
-  
+    h1 {color: black; font-size: larger; line-height: 2; }
+    p {color: black; font-size: large; line-height: 1; }
+    #myTable {border-collapse: collapse; width: 100%; border: 1px solid #ddd; font-size: 18px; }
+    #myTable th, #myTable td {Text-align: left; padding: 12px; }
+    #myTable tr {border-bottom: 1px solid #ddd; }
+    #myTable tr.header, #myTable tr:hover {background-color: #f1f1f1; }
+
+  @media (max-width: 767px) {
+    .nav-item .nav-link { color: black; font-weight: bold; text-align: center; width: 80%; }
+    .searchbar { width: 100%; margin: 8px auto; }
+    .d-inline a { text-align: center; }
+  }
   </style>
   
 </head>
 
+<body>
 <header>
     <nav class="navbar navbar-expand-lg" style="background-color: #05701cdc;">
         <div class="container-fluid">
@@ -43,15 +58,17 @@
 </header>
 
 <main>
-    <h1 style="text-align: center;">Hello-Bootstrap</h1> 
+    <h1 style="text-align: center;">CO² Ausstoß und Klimawandel</h1> 
     <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit porro rem officia, officiis ex, qui nesciunt ullam, earum consectetur veritatis vero maxime dicta. Sapiente molestiae id odit hic est!</p>
     <p style="text-align: center;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, quos adipisci? Quos deserunt facilis iure eos autem numquam possimus, <br>
                                     quaerat incidunt neque obcaecati aliquid, impedit cum quisquam expedita. Incidunt, voluptatibus.</p>
     <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam odio, dignissimos voluptatem labore suscipit consequatur? Blanditiis numquam nisi ullam quibusdam omnis, adipisci, sunt delectus recusandae iste earum sint, placeat officia.</p>
     <div class="container">
-      <table class="table">
+      <input class="searchbar" type="text" id="myInput" onkeyup="myFunction()" placeholder="Suche nach Unternehmen/Länder">
+      <table id="myTable">
         <thead>
           <tr>
+            <th>Name</th>
             <th>Unternehmen/Land</th>
             <th>CO²-Ausstoß pro Jahr</th>
          </tr>
@@ -59,75 +76,93 @@
         <tbody>
           <tr>
             <td>Deutschland</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>665,9 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>USA</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>5.000 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Frankreich</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>297,5 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Japan</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>1.060 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>China</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>11.000 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Thailand</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>279 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Polen</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>322,1 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Spanien</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>245,6 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Argentinien</td>
-            <td>xxxx t/jahr</td>
+            <td>Land</td>
+            <td>186,5 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>dm</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
-            <td>Evonik</td>
-            <td>xxxx t/jahr</td>
+            <td>Evonik Industries</td>
+            <td>Unternehmen</td>
+            <td>4,8 Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Royal Dutch Shell</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Esso</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Fraunhofer Institut</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
             <td>CATL</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Roche</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
             <td>BASF</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
           <tr>
             <td>Bayer</td>
-            <td>xxxx t/jahr</td>
+            <td>Unternehmen</td>
+            <td>xxxx Millionen Tonnen</td>
           </tr>
         </tbody>
       </table>
@@ -143,4 +178,28 @@
     </nav>
    </footer>
 
+   <script>
+    function myFunction() {
+      var input, filter, table, tr, td1, td2, i, txtValue1, txtValue2;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[0];
+        td2 = tr[i].getElementsByTagName("td")[1];
+        if (td1 && td2) {
+          txtValue1 = td1.textContent || td1.innerText;
+          txtValue2 = td2.textContent || td2.innerText;
+          if (txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+  </script>
+ </body>   
 </html>
+
