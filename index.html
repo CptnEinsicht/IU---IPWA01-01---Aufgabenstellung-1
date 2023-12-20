@@ -31,10 +31,12 @@
     .language-label {margin-right: 12px; }
     label[for="language"] {font-weight: bold; }
 
-    @media (max-width: 767px) {
-        .navbar { min-width: 767px;  } 
-        footer {min-width: 767px;}
-        main {min-width: 767px; } }
+    @media (max-width: 990px) { /* 990px, da ab diesem Wert localLink unter dem globalen Navigator liegt */
+      .navbar { min-width: 600px;  } 
+      footer {min-width: 600px;}
+      main {min-width: 600px; } 
+      .localLink {border-right: none; border-bottom: 2px solid #000000; }
+    }
 
     body.rtl { direction: rtl; text-align: right; }
     .navbar-nav {flex-direction: row-reverse; }
@@ -78,15 +80,16 @@
   </header>
 
 
-  <main>
-    <nav class="localLink">
-      <ul>
-        <li><a href="https://www.bgr.bund.de/DE/Themen/Nutzung_tieferer_Untergrund_CO2Speicherung/Downloads/faktenblatt-was-ist-co2.pdf?__blob=publicationFile&v=2">Was ist CO²</a></li>
-        <li><a href="https://www.umweltbundesamt.de/themen/klima-energie/klimawandel/haeufige-fragen-klimawandel#klima">Klimawandel</a></li>
-        <li><a href="https://www.pik-potsdam.de/~stefan/Publications/Kipppunkte%20im%20Klimasystem%20-%20Update%202019.pdf">Kipppunkte</a></li>
-      </ul>
-    </nav>
-    <div class="mainContent">
+  <main class="container-fluid">
+    <div class="row">
+      <nav class="col-lg-2 col-md-12 localLink">
+        <ul>
+          <li><a href="https://www.bgr.bund.de/DE/Themen/Nutzung_tieferer_Untergrund_CO2Speicherung/Downloads/faktenblatt-was-ist-co2.pdf?__blob=publicationFile&v=2">Was ist CO²</a></li>
+          <li><a href="https://www.umweltbundesamt.de/themen/klima-energie/klimawandel/haeufige-fragen-klimawandel#klima">Klimawandel</a></li>
+          <li><a href="https://www.pik-potsdam.de/~stefan/Publications/Kipppunkte%20im%20Klimasystem%20-%20Update%202019.pdf">Kipppunkte</a></li>
+        </ul>
+      </nav>
+      <div class="col-lg-10 col-md-12 mainContent">
       <h1>CO² Ausstoß und Klimawandel</h1> 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam suscipit porro rem officia, officiis ex, qui nesciunt ullam, earum consectetur veritatis vero maxime dicta. Sapiente molestiae id odit hic est!</p>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique, quos adipisci? Quos deserunt facilis iure eos autem numquam possimus, <br>
